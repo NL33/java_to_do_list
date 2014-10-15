@@ -1,0 +1,21 @@
+#show-todo {
+  display: none;
+}
+
+.done{
+  font-weight: bold;
+  font-size: 22px;
+  color: #0088cc;
+}
+
+
+.undone {
+  font-size: 14px;
+  cursor: pointer;
+  color: #00A352;
+}
+
+
+.undone:hover {
+  text-decoration: underline;
+}
