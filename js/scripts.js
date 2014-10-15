@@ -8,7 +8,7 @@ $(document).ready(function() {
 	var toDo = { description: newDescription, deadline: newDeadline };
 
 	$("#show-todo").show();
-     $(".todolist").append("<li>" + toDo.description + " " +
+  $(".todolist").append("<li>" + toDo.description + " " +
      						          "&nbsp; &nbsp&nbsp; &nbsp&nbsp; &nbsp<span class ='undone'>
                           Click here to mark this task as Done!</span>"  
      							         + "<h5>" + "Deadline:" + " " + toDo.deadline + "</h5>" + 
