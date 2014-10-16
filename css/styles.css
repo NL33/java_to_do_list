@@ -1,21 +1,21 @@
-#show-todo {
-  display: none;
-}
-
-.done{
-  font-weight: bold;
+.showlist {
   font-size: 22px;
+  cursor: pointer;
   color: #0088cc;
 }
 
 
-.undone {
-  font-size: 14px;
-  cursor: pointer;
-  color: #00A352;
+.showlist:hover {
+  text-decoration: underline;
+  text-decoration: bold;
 }
 
 
-.undone:hover {
-  text-decoration: underline;
+
+input#new-description {
+	width: 30%;
+}
+
+input#new-deadline {
+	width: 30%;
 }

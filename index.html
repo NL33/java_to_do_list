@@ -12,9 +12,31 @@
       <h1>To Do List</h1>
 
  <div class="row">
-        <div class="col-md-3">
-          <h2>Add a To-Do:</h2>
-          <form id="new-todo">
+        <div class="col-md-2">
+          <h2>Create a List!</h2>
+          <form id="new-list">
+            <div class="form-group">
+              <label for="new-list">Name</label>
+              <input type="text" class="form-control" id="new-list">
+            </div>
+
+            <button type="submit" class="btn">Create!</button>
+          </form>
+    </div>        
+ </div>
+
+ <div class="row">
+  <div class="col-md-4">
+         <h2>Lists:</h2>
+          <ol id="show-lists"> 
+
+          </ol>
+
+      <form id="new-task">
+        <h2>Add a To-Do:</h2>
+ 
+        <div id="new-todos">
+          <div class="new-todo">
             <div class="form-group">
               <label for="new-description">Description</label>
               <input type="text" class="form-control" id="new-description">
@@ -22,21 +44,19 @@
             <div class="form-group">
               <label for="deadline">Deadline</label>
               <input type="text" class="form-control" id="new-deadline">
-            </div>
+            </div> 
+          </div>
+        <span class="btn btn-success" id="add-tasks">Add Task</span>
+        </form>
+  </div>     
+  </div>   
 
-            <button type="submit" class="btn">Add</button>
-          </form>
-    </div>        
+ <div class="row">
+    <div class="col-md-6">
+        <ul id="fulllistdisplay"> 
 
-      <div class="col-md-9">
-         <h2>To-Dos:</h2>
-          <ol id="show-todo"><h4> <span class="todolist"></span></h4></br> 
-            
-</ol>
-
-
-        </div>
-      </div>
-    </div>
+        </ul>
+   </div>
+</div>
   </body>
 </html>

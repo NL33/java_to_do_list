@@ -1,1 +1,115 @@
+old scripts.js:
+
+$(document).ready(function() {
+  $("form#new-todo").submit(function(event) {
+  event.preventDefault();
+
+	var newDescription = $("input#new-description").val();
+	var newDeadline = $("input#new-deadline").val();
+
+	var toDo = { description: newDescription, deadline: newDeadline };
+
+	$("#show-todo").show();
+  $(".todolist").append("<li>" + toDo.description + " " + 
+                        "<span class ='undone'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Click here to mark this task as Done!</span>"   
+     							         + "<h5>" + "Deadline:" + " " + toDo.deadline + "</h5>" + 
+     	                    "</li>" + "</br>");
+
+	$(".undone").click(function(){
+		$(this).empty();
+		$(this).append("<span class ='done'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Done!</span>");
+    });
+
+  });
+});
+
+old index.html:
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>To Do List</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>To Do List</h1>
+
+ <div class="row">
+        <div class="col-md-3">
+          <h2>Add a To-Do:</h2>
+          <form id="new-todo">
+            <div class="form-group">
+              <label for="new-description">Description</label>
+              <input type="text" class="form-control" id="new-description">
+            </div>
+            <div class="form-group">
+              <label for="deadline">Deadline</label>
+              <input type="text" class="form-control" id="new-deadline">
+            </div>
+
+            <button type="submit" class="btn">Add</button>
+          </form>
+    </div>        
+
+      <div class="col-md-9">
+         <h2>To-Dos:</h2>
+          <ol id="show-todo"><h4> <span class="todolist"></span></h4></br> 
+            
+</ol>
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+FIRST DRAFT OF NEW scripts.js:
+$(document).ready(function() {
+
+  //click on new todo under a list, and the boxes appear
+   $("#add-todo").click(function() {
+    $("#new-todos").append('<div class="new-todo">' + '<div class="form-group">' +
+              '<label for="new-description">Description</label>' + 
+              '<input type="text" class="form-control" id="new-description">' +
+              '</div>' + '<div class="form-group">' + '<label for="deadline">Deadline</label>' + 
+              '<input type="text" class="form-control" id="new-deadline">' + 
+              '</div>' + '</div>');
+     });
+  //
+ $("form#new-list").submit(function(event) {
+  event.preventDefault();
+//create a new list, which includes tasks taken from new todo loop below
+	var newListName = $("input#new-list").val();
+  var newList = { name: newListName, tasks: [] };
+//
+
+//loop for every new todo created--pushing the results into the taks object
+  $(".new-todo").each(function(){
+    var inputtedDescription = $(this).find("input#new-description").val();
+    var inputtedDeadline= $(this).find("input#new-deadline").val();
+
+    var additionalTodos = { description: inputtedDescription, deadline: inputtedDeadline };
+    
+    newList.tasks.push(additionalTodos);
+  });
+//
+//appending the listname in the middle column
+$("ol#show-lists").append("<li><span class ='listnames'>" + "<h4>" + newListName + "</h4>" + "</span></li>" + "</br>");
+  
+
+//appending the listname and tasks to the third column
+  $(".listnames").last().click(function(){
+      newList.tasks.forEach(function(task) {  
+        $("ul#fulllistdisplay").append("<li>" + "<h4>" + newListName + "</h4>" + 
+                                        "<dd>" + task.description + "</dd>" + 
+                                        "<dd>" + task.deadline + "</dd>" + "</li>");
+        });
+    });
+});
+});
 
