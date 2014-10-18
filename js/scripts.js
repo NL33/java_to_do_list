@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-  //click on new todo under a list, and the boxes appear
   
     //$("#new-todos").append('<div class="new-todo">' + '<div class="form-group">' +
               //'<label for="new-description">Description</label>' + 
@@ -10,36 +9,42 @@ $(document).ready(function() {
               //'</div>' + '</div>');//this code produces new boxes for descriptions and deadlines--unnecessary, but kept for instructional purposes
      
   //
+
  $("form#new-list").submit(function(event) {
   event.preventDefault();
 //create a new list, which includes tasks taken from new todo loop below
-	var newListName = $("input#new-list").val();
+  var newListName = $("input#new-list").val();
   var newList = { name: newListName, tasks: [] };
-//
+  //if (newListName) {
+    $("#listinglists").show();
+    $("ol#show-lists").append("<li><span class ='listnames'>" + "<h4>" + newListName + "</h4>" + "</span></li>");
 
-//loop for every new todo created--pushing the results into the taks object
-$("#add-tasks").click(function() {
-  $(".new-todo").each(function(){
-    var inputtedDescription = $(this).find("input#new-description").val();
-    var inputtedDeadline= $(this).find("input#new-deadline").val();
 
-    var additionalTodos = { description: inputtedDescription, deadline: inputtedDeadline };
-    
-    newList.tasks.push(additionalTodos);
-  });
-});
-//
-//appending the listname in the middle column
-$("ol#show-lists").append("<li><span class ='listnames'>" + "<h4>" + newListName + "</h4>" + "</span></li>" + "</br>");
-  
 
-//appending the listname and tasks to the third column
   $(".listnames").last().click(function(){
-      newList.tasks.forEach(function(task) {  
-        $("ul#fulllistdisplay").append("<li>" + "<h4>" + newListName + "</h4>" + 
-                                        "<dd>" + task.description + "</dd>" + 
-                                        "<dd>" + task.deadline + "</dd>" + "</li>");
-        });
+      $("input#new-description").val("");
+      $("input#new-deadline").val("");
+      $("#fulllistdisplay").empty();
+      $("#name").empty();
+      $("#new-task").show();
+      $("#name").append("to" + " " + newListName + " " + "<span class='small'>(click on the word" + " " + newListName + " " + "above to display all tasks for the list" + " " + newListName + ")" + "</span>")
+      $("#listdetail").empty();
+      $("#listdetail").append(newListName); 
+      newList.tasks.forEach(function(task) {
+       $("#fulllistdisplay").append("<span class='bullets'>Task:</span>" + " " + task.description + 
+                                        "<dd>" + "&nbsp;&nbsp;&nbsp;" + "<span class='bullets'>Due:</span>" 
+                                        + " " + task.deadline + "</dd>" + "<p></p>");
+      });
     });
+
+    $("#add-tasks").click(function() {
+          $(".new-todo").each(function(){
+           var inputtedDescription = $(this).find("input#new-description").val();
+           var inputtedDeadline= $(this).find("input#new-deadline").val();
+           var additionalTodos = { description: inputtedDescription, deadline: inputtedDeadline };
+           newList.tasks.push(additionalTodos);
+          });
+    }); 
+
 });
 });

@@ -1,21 +1,45 @@
-.showlist {
+#listinglists {
+	display:none;
+}
+
+#new-task {
+	display: none;
+}
+
+.form-control {
+	width: 65%;
+}
+
+#show-lists {
   font-size: 22px;
   cursor: pointer;
   color: #0088cc;
 }
 
 
-.showlist:hover {
-  text-decoration: underline;
+#show-lists:hover {
   text-decoration: bold;
 }
 
 
 
-input#new-description {
-	width: 30%;
+.small {
+	font-size: 3px;
+	font-family: garamond;
 }
 
-input#new-deadline {
-	width: 30%;
+#listdetail {
+	font-size: 60px;
+	text-decoration: underline;
+	color: #0088cc;
+	font-family: sans-serif;
+}
+
+#fulllistdisplay {
+	font-size: 30px;
+	font-family: sans-serif;
+}
+
+.bullets {
+	font-size: 14px;
 }

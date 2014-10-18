@@ -1,1 +1,1 @@
-Basic page for listing to-dos, and then updating them to reflect when they are complete. 
+Basic page for listing lists of to-dos, and then uploading tasks to each to do.  (Drafts has version of simply adding to-dos to a single list, and being able to update as "done"). This file is preliminary--certain refactoring to address bugs yet to do (this was created to experiment with a few items)

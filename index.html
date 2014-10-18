@@ -11,8 +11,8 @@
     <div class="container">
       <h1>To Do List</h1>
 
- <div class="row">
-        <div class="col-md-2">
+<div class="row">
+   <div class="col-md-4">
           <h2>Create a List!</h2>
           <form id="new-list">
             <div class="form-group">
@@ -22,18 +22,26 @@
 
             <button type="submit" class="btn">Create!</button>
           </form>
-    </div>        
- </div>
+    </div>  
 
- <div class="row">
+<div class="col-md-3">
+        <span id="listdetail"></span> 
+        <div id="fulllistdisplay"> 
+
+        </div></p>
+   </div>   
+</div>
+
+
   <div class="col-md-4">
+      <div id="listinglists">
          <h2>Lists:</h2>
           <ol id="show-lists"> 
 
           </ol>
-
+      </div>
       <form id="new-task">
-        <h2>Add a To-Do:</h2>
+        <h2>Add a To-Do <span id="name"></span></h2>
  
         <div id="new-todos">
           <div class="new-todo">
@@ -46,17 +54,10 @@
               <input type="text" class="form-control" id="new-deadline">
             </div> 
           </div>
-        <span class="btn btn-success" id="add-tasks">Add Task</span>
-        </form>
-  </div>     
-  </div>   
+        <span class="btn btn-success" id="add-tasks">Add Task</span><p></p>
+      </form>
+   </div> 
 
- <div class="row">
-    <div class="col-md-6">
-        <ul id="fulllistdisplay"> 
 
-        </ul>
-   </div>
-</div>
   </body>
 </html>
